@@ -1,16 +1,15 @@
 const ROCK = "rock", PAPER = "paper", SCISSORS = "scissors";
-let playerChoice, computerChoice;
 
 function getComputerChoice(){
     let i = Math.floor(Math.random()*3);
-    i === 0? computerChoice = ROCK:
-    i === 1? computerChoice = PAPER:
-    computerChoice = SCISSORS;
+    return i === 0? ROCK:
+    i === 1? PAPER:
+    SCISSORS;
 }
 
 function playRound(){
-    playerChoice = prompt(`Enter "rock", "paper" or "scissors"!`).toLowerCase();
-    getComputerChoice();
+    let playerChoice = prompt(`Enter "rock", "paper" or "scissors"!`).toLowerCase();
+    let computerChoice = getComputerChoice();
     compareChoices(playerChoice, computerChoice);
 }
 
@@ -37,5 +36,6 @@ function compareChoices(playerChoice, computerChoice){
 }
 
 function playGame(){
-
+    let round=0, playerScore=0, computerScore=0;
+    
 }
