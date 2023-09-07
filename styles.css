@@ -2,6 +2,10 @@ body{
     display: flex;
 }
 
+div{
+    text-align: center;
+}
+
 .verticalBlank{
     flex: 1;
 }
@@ -13,6 +17,10 @@ body{
     align-items: center;
 }
 
+#message{
+    white-space: pre-wrap;
+}
+
 .choiceContainer{
     display:flex;
     justify-content: space-around;
@@ -21,4 +29,11 @@ body{
 .scoreContainer{
     display:flex;
     justify-content: space-between;
+}
+
+.scoreBox{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

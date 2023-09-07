@@ -27,6 +27,8 @@ function playRound(playerChoice){
     if(gameOver){return;}
     let computerChoice = getComputerChoice();
     message.textContent = compareChoices(playerChoice, computerChoice);
+    updateScore();
+    checkGameOver();
 }
 
 function compareChoices(playerChoice, computerChoice){
@@ -50,17 +52,18 @@ function compareChoices(playerChoice, computerChoice){
     return `You chose ${playerChoice}, computer chose ${computerChoice}. You lose!`;
 }
 
-/*
-function playGame(){
-    playerScore=0, computerScore=0;
-    for (round=1; round<=5; round++){
-        playRound();
-        console.log(`Your score: ${playerScore}`);
-        console.log(`Computer score: ${computerScore}`);
-    }
-    let finalScore = `Final Score: ${playerScore}:${computerScore}. `;
-    playerScore>computerScore? console.log(finalScore + "You give the computer a much needed beating and let them know their place."):
-    computerScore>playerScore? console.log(finalScore + "The AI kicks your ass at rock paper scissors and takes over the world."):
-    console.log(finalScore + "You and your computer stare furiously at each other over the tie.");
+function updateScore(){
+    playerScoreDisplay.textContent = playerScore;
+    computerScoreDisplay.textContent = computerScore;
 }
-*/
+
+function checkGameOver(){
+    if(playerScore>=5){
+        gameOver = true;
+        message.textContent = "You give the computer a much needed beating and let them know their place.\nYou win! Refresh the page to play again."
+    }
+    if(computerScore>=5){
+        gameOver = true;
+        message.textContent ="The AI kicks your ass at rock paper scissors and takes over the world.\nYou lose! Refresh the page to play again."
+    }
+}
