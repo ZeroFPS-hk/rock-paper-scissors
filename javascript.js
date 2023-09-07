@@ -1,5 +1,20 @@
 const ROCK = "rock", PAPER = "paper", SCISSORS = "scissors";
-let playerScore, computerScore;
+
+const playerScoreDisplay = document.querySelector('#playerScore');
+const computerScoreDisplay = document.querySelector('#computerScore');
+const message = document.querySelector('#message');
+
+const imageRock = document.querySelector('#rock');
+const imagePaper = document.querySelector('#paper');
+const imageScissors = document.querySelector('#scissors');
+
+let playerScore=0, computerScore=0, gameOver=false;
+
+
+
+imageRock.addEventListener('click', ()=>playRound(ROCK));
+imagePaper.addEventListener('click', ()=>playRound(PAPER));
+imageScissors.addEventListener('click', ()=>playRound(SCISSORS));
 
 function getComputerChoice(){
     let i = Math.floor(Math.random()*3);
@@ -8,10 +23,10 @@ function getComputerChoice(){
     SCISSORS;
 }
 
-function playRound(){
-    let playerChoice = prompt(`Enter "rock", "paper" or "scissors"!`).toLowerCase();
+function playRound(playerChoice){
+    if(gameOver){return;}
     let computerChoice = getComputerChoice();
-    console.log(compareChoices(playerChoice, computerChoice));
+    message.textContent = compareChoices(playerChoice, computerChoice);
 }
 
 function compareChoices(playerChoice, computerChoice){
@@ -35,6 +50,7 @@ function compareChoices(playerChoice, computerChoice){
     return `You chose ${playerChoice}, computer chose ${computerChoice}. You lose!`;
 }
 
+/*
 function playGame(){
     playerScore=0, computerScore=0;
     for (round=1; round<=5; round++){
@@ -47,3 +63,4 @@ function playGame(){
     computerScore>playerScore? console.log(finalScore + "The AI kicks your ass at rock paper scissors and takes over the world."):
     console.log(finalScore + "You and your computer stare furiously at each other over the tie.");
 }
+*/
