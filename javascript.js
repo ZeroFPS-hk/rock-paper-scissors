@@ -60,7 +60,7 @@ function updateScore(){
 function checkGameOver(){
     if(playerScore>=5){
         gameOver = true;
-        message.textContent = "You give the computer a much needed beating and let them know their place.\nYou win! Refresh the page to play again."
+        message.textContent = "You give the computer a much needed beating and make them know their place.\nYou win! Refresh the page to play again."
     }
     if(computerScore>=5){
         gameOver = true;

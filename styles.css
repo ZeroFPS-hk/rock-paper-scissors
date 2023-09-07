@@ -1,13 +1,20 @@
 body{
     display: flex;
+    background-color: lavender;
 }
 
 div{
     text-align: center;
+    font-family: Roboto, Calibri, sans-serif;
+    font-size: 24px;
+}
+
+p{
+    margin: 8px;
 }
 
 .verticalBlank{
-    flex: 1;
+    flex: 0 1 auto;
 }
 
 .content{
@@ -17,17 +24,41 @@ div{
     align-items: center;
 }
 
+.header{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+    color: red;
+    margin-top: 24px;
+    margin-bottom: 36px;
+}
+
 #message{
     white-space: pre-wrap;
+    color: purple;
+    margin-top: 16px;
 }
 
 .choiceContainer{
     display:flex;
+    flex-wrap: wrap;
     justify-content: space-around;
+    gap: 50px;
+    margin: 50px;
+}
+
+img{
+    width: 250px;
+    height: auto;
+    border-radius: 20px;
+    border: 5px solid yellow;
+    background-color: darkslategray;
+    cursor: pointer;
 }
 
 .scoreContainer{
-    display:flex;
+    flex: 1;
+    display: flex;
     justify-content: space-between;
 }
 
