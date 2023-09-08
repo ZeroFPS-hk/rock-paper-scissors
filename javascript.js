@@ -8,7 +8,7 @@ const imageRock = document.querySelector('#rock');
 const imagePaper = document.querySelector('#paper');
 const imageScissors = document.querySelector('#scissors');
 
-let playerScore=0, computerScore=0, gameOver=false;
+let playerScore=0, computerScore=0, gameOver=false, audio;
 
 
 
@@ -45,10 +45,12 @@ function compareChoices(playerChoice, computerChoice){
     (playerChoice===PAPER && computerChoice===ROCK) ||
     (playerChoice===SCISSORS && computerChoice===PAPER)){
         playerScore++;
+        playWinSound(playerChoice);
         return `You chose ${playerChoice}, computer chose ${computerChoice}. You win!`;
     }
 
     computerScore++;
+    playLoseSound();
     return `You chose ${playerChoice}, computer chose ${computerChoice}. You lose!`;
 }
 
@@ -60,10 +62,40 @@ function updateScore(){
 function checkGameOver(){
     if(playerScore>=5){
         gameOver = true;
+        audio = document.querySelector('audio#gameWin');
+        audio.play();
+        disableCursorChange();
         message.textContent = "You give the computer a much needed beating and make them know their place.\nYou win! Refresh the page to play again."
     }
     if(computerScore>=5){
         gameOver = true;
+        audio = document.querySelector('audio#gameLose');
+        audio.play();
+        disableCursorChange();
         message.textContent ="The AI kicks your ass at rock paper scissors and takes over the world.\nYou lose! Refresh the page to play again."
+    }
+}
+
+function playWinSound(playerChoice){
+    playerChoice===ROCK? audio=document.querySelector('audio#winRock'):
+    playerChoice===PAPER? audio=document.querySelector('audio#winPaper'):
+    audio=document.querySelector('audio#winScissors');
+    if(!audio) return;
+    audio.play();
+}
+
+function playLoseSound(){
+    let i = Math.floor(Math.random()*3);
+    i===0? audio=document.querySelector('audio#lose1'):
+    i===1? audio=document.querySelector('audio#lose2'):
+    audio=document.querySelector('audio#lose3');
+    if(!audio) return;
+    audio.play();
+}
+
+function disableCursorChange(){
+    const images = Array.from(document.querySelectorAll('img'));
+    for (const image of images){
+        image.style.cursor = "default";
     }
 }
