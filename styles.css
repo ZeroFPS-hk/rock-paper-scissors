@@ -14,7 +14,15 @@ p{
 }
 
 .verticalBlank{
-    flex: 0 1 auto;
+    flex: 0 1 0;
+    display: flex;
+    align-items: flex-end;
+    margin: 20px;
+}
+
+.verticalBlank img{
+    height: 350px;
+    width: auto;
 }
 
 .content{
@@ -47,7 +55,7 @@ p{
     margin: 50px;
 }
 
-img{
+.choiceContainer img{
     width: 250px;
     height: auto;
     border-radius: 20px;
